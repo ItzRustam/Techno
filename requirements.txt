@@ -1,0 +1,10 @@
+langchain
+langchain-core
+langchain-google-genai
+langchain-groq # Fall Back Model
+python-dotenv
+streamlit
+ddgs
+rich
+langchain-ollama # For Local Model Usage
+requests # if not installed
