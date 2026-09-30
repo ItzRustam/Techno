@@ -1,0 +1,9 @@
+# env file
+.env
+
+.venv/*
+__pycache__/*
+*.pyc
+
+# agent workspace
+agent_workspace/*
