@@ -125,6 +125,14 @@ Example:
 Create info.csv with age and height data.
 ```
 
+### `search_wikipedia`
+search specific topic on Wikipedia
+
+Example:
+```text
+search on Wikipedia about Andrew NG.
+```
+
 ### `read_file`
 
 Reads an existing file from the agent workspace.
