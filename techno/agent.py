@@ -15,7 +15,8 @@ tools_name = {
     "create_file": create_file,
     "read_file": read_file,
     'find_file': find_file,
-    "call_api": call_api
+    "call_api": call_api,
+    "search_wikipedia": search_wikipedia
 }
 
 
@@ -25,7 +26,7 @@ def create_agent():
 
     llm = ChatGoogleGenerativeAI(model=os.getenv("MODEL"))
 
-    tools = [web_search, create_file, read_file, find_file, call_api]
+    tools = [web_search, create_file, read_file, find_file, call_api, search_wikipedia]
 
     # Agent
     Agent = llm.bind_tools(tools=tools)

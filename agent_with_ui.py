@@ -15,6 +15,7 @@ from techno.tools import (
     read_file,
     find_file,
     call_api,
+    search_wikipedia
 )
 
 from techno.prompt import system_message
@@ -37,6 +38,7 @@ tools_name = {
     "read_file": read_file,
     "find_file": find_file,
     "call_api": call_api,
+    "search_wikipedia": search_wikipedia
 }
 
 
@@ -46,6 +48,7 @@ tools = [
     read_file,
     find_file,
     call_api,
+    search_wikipedia
 ]
 
 
