@@ -12,6 +12,7 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.tools import tool
 from ddgs import DDGS
 import requests as rq
+import wikipediaapi
 
 import sys
 from pathlib import Path
@@ -28,6 +29,26 @@ class APIResult(BaseModel):
 
 # output parser
 parser = PydanticOutputParser(pydantic_object=APIResult)
+
+
+@tool
+def search_wikipedia(topic : str) -> str:
+    """Search Wikipedia on given Topic. use only when user asked specific for wikipedia."""
+    try:
+        wiki = wikipediaapi.Wikipedia(
+            user_agent="RSRoute-Agent Techno https://github.com/ItzRustam/Techno", 
+            language="en"
+        )
+
+        page = wiki.page(topic)
+
+        if page.exists():
+            return str(page.text) # make sure for str object only.
+        else:
+            return f"No result found for {topic}"
+
+    except Exception as E:
+        return str(E)
 
 @tool
 def call_api(url : str, Data : dict, method : str = "get") -> Tuple[int, Dict[Any, Any]]:
