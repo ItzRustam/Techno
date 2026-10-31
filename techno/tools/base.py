@@ -75,13 +75,13 @@ def call_api(url : str, Data : dict, method : str = "get") -> Tuple[int, Dict[An
     
     if method == "get":
         try:
-            response = rq.get(url=url, params=Data)
+            response = rq.get(url=url, json=Data)
             return response.status_code, response.json()
         except Exception as E:
             return response.status_code, {"Error": str(E)}
     elif method == "post":
         try:
-            response = rq.post(url=url, params=Data)
+            response = rq.post(url=url, json=Data)
             return response.status_code, response.json()
         except Exception as E:
             return response.status_code, {"Error": str(E)}
